@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_155357) do
+ActiveRecord::Schema.define(version: 2020_03_03_160306) do
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "tv_show_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tv_show_id"], name: "index_favourites_on_tv_show_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "tv_shows", force: :cascade do |t|
+    t.string "name"
+    t.time "telecast_time"
+    t.integer "channel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_tv_shows_on_channel_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,4 +48,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_155357) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favourites", "tv_shows"
+  add_foreign_key "favourites", "users"
 end

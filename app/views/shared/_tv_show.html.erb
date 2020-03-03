@@ -1,0 +1,12 @@
+<tr>
+	<td><%= tv_show.channel.name %></td>
+	<td><%= tv_show.name %></td>
+	<td><%= tv_show.telecast_time %></td>
+	<td>
+		<% if current_user.favourite_show?(tv_show) %>
+			<%= link_to "Remove favourite", remove_favourite_tv_show_path(tv_show) %>
+		<% else %>
+			<%= link_to "Mark favourite", add_favourite_tv_show_path(tv_show) %>
+		<% end %>
+	</td>
+</tr>
