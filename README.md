@@ -1,24 +1,31 @@
-# README
+# Functionality
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allows the user to view list of available channels and TV shows telecasting lon that channel with telecast time.
 
-Things you may want to cover:
+User can mark any TV show as favourite and get notified 30 minutes prior to the telecat.
 
-* Ruby version
+# Features :
+ * user Login
+ * user can search through list with with channel name or show time
+ * user can mark a tv show as favourite
+ * user can unmark a TV show from favourite list
+ * user get notified 30 minutes prior to telecast.
 
-* System dependencies
+# Gems Used
+* Devise for Authentication
+* Datatable for search
+* Bootstrap for HTML
+* whenever for scheduling the rake task evry 30 minutes
+* seed_dump gem to dump DB data to seed
 
-* Configuration
+# Rails version 6.0.2.1
+# ruby version ruby 2.6.3p62
 
-* Database creation
+# Added seed data to seed.rb file
 
-* Database initialization
+* $ rake db:create
+* $ rake db:migrate
+* $ rake db:seed
+* $ rails s
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+FYI the UI has to be improved to get nicer look.
